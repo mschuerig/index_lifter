@@ -1,6 +1,6 @@
 
 class IndexLifter
-  VERSION = '0.0.3'
+  VERSION = '0.0.4'
   SYSTEM_TABLES = ['schema_migrations'].freeze
   attr_reader :tables, :indexes
   
