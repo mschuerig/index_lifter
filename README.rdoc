@@ -9,8 +9,10 @@ ActiveRecord utility class that disables database indexes during a block.
 == FEATURES/PROBLEMS:
 
 * Speeds up large database imports and large-scale data generation
-* Only use it in "maintenance mode", i.e., when there are no other 
+* Only use it in "maintenance mode", i.e., when there are no other
   connections to the database.
+* If your application depends on unique indexes for working properly
+  even during data generation, make sure they are not lifted.
 
 == SYNOPSIS:
 
@@ -25,13 +27,13 @@ ActiveRecord utility class that disables database indexes during a block.
 
     ActiveRecord::Base.transaction do
       IndexLifter.without_indexes(
-        :movies,                     # Only consider indexes on these tables;
-        :people,                     #   all tables by default.
-        :except => retained_indexes  # Don't lift these indexes
-        :except_unique => true       # Don't lift unique indexes; default: false.
+        :movies,                       # Only consider indexes on these tables;
+        :people,                       #   all tables by default.
+        :except => retained_indexes,   # Don't lift these indexes
+        :except_unique => true         # Don't lift unique indexes; default: false.
       ) do
         ActiveRecord::Base.silence do
-        
+
           # import or generate large amounts of data here
 
         end
