@@ -1,6 +1,6 @@
 = index_lifter
 
-http://github.com/mschuerig/index_lifter
+* http://github.com/mschuerig/index_lifter
 
 == DESCRIPTION:
 
@@ -47,7 +47,7 @@ ActiveRecord utility class that disables database indexes during a block.
 
 == INSTALL:
 
-* sudo gem install index_lifter
+* sudo gem install mschuerig-index_lifter
 
 == LICENSE:
 
